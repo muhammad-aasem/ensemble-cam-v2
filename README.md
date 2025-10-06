@@ -13,7 +13,28 @@ A comprehensive deep learning pipeline for chest X-ray classification using mult
 
 ## Quick Start
 
-### Quick Start with Jupyter Notebooks
+### Option 1: Import from GitHub (Recommended)
+
+If you don't have the project yet, use the import scripts:
+
+#### macOS/Linux
+```bash
+./scripts/github_import.sh
+```
+
+#### Windows (Command Prompt)
+```cmd
+scripts\github_import.bat
+```
+
+#### Windows (PowerShell)
+```powershell
+.\scripts\github_import.ps1
+```
+
+Then follow the setup instructions below.
+
+### Option 2: Quick Start with Jupyter Notebooks
 
 The easiest way to get started is using the provided Jupyter notebooks:
 
@@ -398,6 +419,61 @@ This will open Jupyter Lab in your browser (usually at http://localhost:8888) wh
 - Open `playbook2_train_Xception.ipynb` for model training
 - Explore the project files and datasets
 
+## GitHub Scripts
+
+The project includes cross-platform scripts for GitHub operations:
+
+### Upload to GitHub
+
+Upload your local changes to the GitHub repository:
+
+#### macOS/Linux
+```bash
+./scripts/github_upload.sh
+```
+
+#### Windows (Command Prompt)
+```cmd
+scripts\github_upload.bat
+```
+
+#### Windows (PowerShell)
+```powershell
+.\scripts\github_upload.ps1
+```
+
+### Import from GitHub
+
+Clone the repository from GitHub:
+
+#### macOS/Linux
+```bash
+./scripts/github_import.sh
+```
+
+#### Windows (Command Prompt)
+```cmd
+scripts\github_import.bat
+```
+
+#### Windows (PowerShell)
+```powershell
+.\scripts\github_import.ps1
+```
+
+**Upload Script Features:**
+- Automatic environment variable loading from `.env` file
+- Sensitive file cleanup (removes token references)
+- Retry logic for GitHub push protection violations
+- Cross-platform compatibility
+- Secure token handling
+
+**Import Script Features:**
+- Automatic repository cloning
+- Git installation check
+- Safety warnings for existing repositories
+- Clear next-step instructions
+
 ## Project Structure
 
 ```
@@ -432,6 +508,13 @@ ensemble-cam-v2/
 │   ├── densenet169/                                  # DenseNet169 model results
 │   ├── inception_resnet_v2/                          # InceptionResNetV2 model results
 │   └── xception/                                     # Xception model results
+├── scripts/                                         # GitHub operation scripts
+│   ├── github_upload.sh                             # Upload script (macOS/Linux)
+│   ├── github_upload.bat                            # Upload script (Windows CMD)
+│   ├── github_upload.ps1                            # Upload script (Windows PowerShell)
+│   ├── github_import.sh                             # Import script (macOS/Linux)
+│   ├── github_import.bat                            # Import script (Windows CMD)
+│   └── github_import.ps1                            # Import script (Windows PowerShell)
 ├── pyproject.toml                                    # UV project configuration
 ├── uv.lock                                          # UV lock file
 ├── .gitignore                                       # Git ignore file
