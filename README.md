@@ -90,7 +90,11 @@ uv run jupyter lab
 
 3. **Configure Hugging Face token**
    ```bash
-   # Set your Hugging Face token as environment variable
+   # Option 1: Copy and edit .env file (recommended)
+   cp .env.example .env
+   # Edit .env and replace placeholder with your actual token
+   
+   # Option 2: Set environment variable
    export HUGGINGFACE_HUB_TOKEN="your_token_here"
    ```
 
@@ -431,6 +435,7 @@ ensemble-cam-v2/
 ├── pyproject.toml                                    # UV project configuration
 ├── uv.lock                                          # UV lock file
 ├── .gitignore                                       # Git ignore file
+├── .env.example                                      # Environment variables template
 ├── LICENSE                                          # MIT License
 └── README.md                                        # This file
 ```

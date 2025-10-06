@@ -3,6 +3,12 @@
 # Script to prepare and upload the ensemble-cam project to GitHub
 # Make sure you have git configured and the remote repository set up
 
+# Load environment variables from .env file if it exists
+if [ -f .env ]; then
+    echo "Loading environment variables from .env file..."
+    export $(grep -v '^#' .env | xargs)
+fi
+
 echo "Preparing ensemble-cam project for GitHub upload..."
 
 # Initialize git repository if not already done
@@ -39,7 +45,15 @@ fi
 
 # Push to GitHub
 echo "Pushing to GitHub..."
-git push -u origin main
+
+# Use GitHub token from environment if available
+if [ -n "$GITHUB_TOKEN" ]; then
+    echo "Using GitHub token from environment..."
+    git push https://muhammad-aasem:$GITHUB_TOKEN@github.com/muhammad-aasem/ensemble-cam-v2.git main
+else
+    echo "No GitHub token found in environment. You'll be prompted for credentials."
+    git push -u origin main
+fi
 
 echo "Upload complete!"
 echo "Repository available at: https://github.com/muhammad-aasem/ensemble-cam-v2"
