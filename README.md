@@ -17,15 +17,21 @@ A comprehensive deep learning pipeline for chest X-ray classification using mult
 
 The easiest way to get started is using the provided Jupyter notebooks:
 
-1. **Dataset Preparation** (Run first):
+1. **Start Jupyter Lab**:
    ```bash
-   uv run jupyter lab notebooks/playbook1_prepare_dataset.ipynb
+   uv run jupyter lab
    ```
+   This opens Jupyter Lab in your browser (usually at http://localhost:8888)
 
-2. **Model Training** (Run after dataset preparation):
-   ```bash
-   uv run jupyter lab notebooks/playbook2_train_Xception.ipynb
-   ```
+2. **Open Dataset Preparation Notebook** (Run first):
+   - Navigate to `notebooks/playbook1_prepare_dataset.ipynb` in the Jupyter Lab file browser
+   - Click to open the notebook
+   - Run all cells to prepare the dataset
+
+3. **Open Model Training Notebook** (Run after dataset preparation):
+   - Navigate to `notebooks/playbook2_train_Xception.ipynb` in the Jupyter Lab file browser
+   - Click to open the notebook
+   - Run all cells to train the Xception model
 
 ### Manual Workflow (Command Line)
 
@@ -382,7 +388,11 @@ The project includes two comprehensive Jupyter notebooks for easy workflow execu
 uv run jupyter lab
 ```
 
-This will open Jupyter Lab in your browser where you can run the notebooks or explore the dataset.
+This will open Jupyter Lab in your browser (usually at http://localhost:8888) where you can:
+- Navigate to the `notebooks/` directory
+- Open `playbook1_prepare_dataset.ipynb` for dataset preparation
+- Open `playbook2_train_Xception.ipynb` for model training
+- Explore the project files and datasets
 
 ## Project Structure
 

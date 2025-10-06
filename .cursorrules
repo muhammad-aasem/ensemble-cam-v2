@@ -1,0 +1,265 @@
+# Ensemble CAM Project Rules
+
+## Code Style and Formatting
+
+### Python Code
+- Use Python 3.13.2+ syntax and features
+- Follow PEP 8 style guidelines
+- Use type hints where appropriate
+- Maximum line length: 100 characters
+- Use 4 spaces for indentation
+- Use descriptive variable and function names
+- Add docstrings to all functions and classes
+
+### File Organization
+- Use absolute paths from project root in all scripts
+- Organize imports: standard library, third-party, local imports
+- Group related functionality in classes
+- Keep functions focused and single-purpose
+
+## Content Guidelines
+
+### NO EMOJIS RULE
+- **STRICTLY FORBIDDEN**: Do not use any emojis in any files, scripts, or documentation
+
+
+### Documentation
+- Use clear, professional language
+- Provide comprehensive docstrings
+- Include usage examples in documentation
+- Keep README files updated and informative
+
+### Comments
+- Write clear, descriptive comments
+- Explain complex logic and algorithms
+- Use comments to document assumptions and constraints
+- Keep comments up-to-date with code changes
+
+## Project-Specific Rules
+
+### Dataset Handling
+- Always use absolute paths from project root
+- Include progress bars for long-running operations
+- Provide detailed error messages and logging
+- Handle missing files gracefully
+- Use pathlib.Path for path operations
+
+### Model Training
+- Include comprehensive logging and metrics
+- Save model checkpoints regularly
+- Provide detailed training progress information
+- Use appropriate device detection (CPU/GPU/MPS)
+- Include early stopping and validation
+
+### File Naming
+- Use descriptive, lowercase names with underscores
+- Follow the pattern: `dataset_N_description.py` for dataset scripts
+- Follow the pattern: `train_ModelName.py` for training scripts
+- Use consistent naming across the project
+
+### Error Handling
+- Use try-except blocks for all external operations
+- Provide meaningful error messages
+- Log errors with appropriate detail levels
+- Handle edge cases gracefully
+- Return appropriate exit codes
+
+## Security and Best Practices
+
+### Sensitive Data
+- NEVER hardcode API keys, tokens, or passwords
+- Use environment variables for sensitive information
+- Include security checks in all scripts
+- Validate user inputs
+- Use secure file operations
+
+### Large Files
+- Never commit large files (>100MB) to git
+- Use .gitignore to exclude model weights and datasets
+- Provide clear instructions for downloading large files
+- Use appropriate file compression when possible
+
+### Dependencies
+- Pin dependency versions in pyproject.toml
+- Use UV for package management
+- Include all required dependencies
+- Document optional dependencies
+- Keep dependencies updated and secure
+
+## Code Quality
+
+### Performance
+- Use appropriate data structures
+- Optimize for memory usage with large datasets
+- Use multiprocessing where appropriate
+- Profile code for bottlenecks
+- Use efficient algorithms
+
+### Testing
+- Write unit tests for core functionality
+- Test edge cases and error conditions
+- Use appropriate test data
+- Mock external dependencies
+- Maintain good test coverage
+
+### Maintainability
+- Write modular, reusable code
+- Use configuration files for settings
+- Provide clear interfaces between modules
+- Document complex algorithms
+- Keep code DRY (Don't Repeat Yourself)
+
+## Git and Version Control
+
+### Commit Messages
+- Use clear, descriptive commit messages
+- Follow conventional commit format when possible
+- Include relevant context in commit messages
+- Reference issues or pull requests when applicable
+
+### Branching
+- Use descriptive branch names
+- Keep branches focused on single features
+- Delete merged branches
+- Use pull requests for code review
+
+## Documentation Standards
+
+### README Files
+- Include clear setup instructions
+- Provide usage examples
+- Document all dependencies
+- Include troubleshooting sections
+- Keep installation instructions up-to-date
+
+### Code Documentation
+- Document all public functions and classes
+- Include parameter descriptions
+- Provide return value documentation
+- Include usage examples in docstrings
+- Document exceptions that may be raised
+
+## Project Structure
+
+### Directory Organization
+- Keep related files together
+- Use consistent directory naming
+- Separate source code from data and models
+- Include appropriate __init__.py files
+- Organize by functionality, not file type
+
+### Import Organization
+- Group imports logically
+- Use absolute imports
+- Avoid circular imports
+- Import only what is needed
+- Use aliases for long module names
+
+## Performance and Optimization
+
+### Memory Management
+- Use generators for large datasets
+- Clean up resources properly
+- Use context managers for file operations
+- Monitor memory usage
+- Optimize data loading
+
+### Computational Efficiency
+- Use vectorized operations when possible
+- Avoid unnecessary computations
+- Cache expensive operations
+- Use appropriate data types
+- Profile and optimize bottlenecks
+
+## Error Handling and Logging
+
+### Logging
+- Use appropriate log levels
+- Include contextual information
+- Log important state changes
+- Use structured logging when possible
+- Rotate log files appropriately
+
+### Exception Handling
+- Catch specific exceptions
+- Provide meaningful error messages
+- Log exceptions with context
+- Handle exceptions at appropriate levels
+- Use custom exceptions when needed
+
+## Configuration Management
+
+### Environment Variables
+- Use environment variables for configuration
+- Provide default values
+- Validate configuration on startup
+- Document all configuration options
+- Use type checking for configuration
+
+### Configuration Files
+- Use standard formats (JSON, YAML, TOML)
+- Validate configuration schemas
+- Provide example configurations
+- Document all configuration options
+- Use hierarchical configuration
+
+## Testing and Quality Assurance
+
+### Code Quality
+- Use linting tools (flake8, black, isort)
+- Run type checking (mypy)
+- Use code formatters consistently
+- Maintain consistent code style
+- Review code before committing
+
+### Testing Strategy
+- Write tests for all new functionality
+- Test both success and failure cases
+- Use appropriate test data
+- Mock external dependencies
+- Maintain good test coverage
+
+## Deployment and Distribution
+
+### Package Management
+- Use UV for dependency management
+- Pin dependency versions
+- Include development dependencies
+- Document installation requirements
+- Provide multiple installation methods
+
+### Distribution
+- Include comprehensive documentation
+- Provide clear usage instructions
+- Include example configurations
+- Document system requirements
+- Provide troubleshooting guides
+
+## Compliance and Standards
+
+### Code Standards
+- Follow Python PEP standards
+- Use consistent naming conventions
+- Maintain readable code structure
+- Document complex logic
+- Use appropriate design patterns
+
+### Documentation Standards
+- Keep documentation up-to-date
+- Use clear, concise language
+- Provide practical examples
+- Include troubleshooting information
+- Maintain consistent formatting
+
+## Final Reminders
+
+- **NO EMOJIS** in any files, scripts, or documentation
+- Use professional, clear language
+- Maintain consistent code style
+- Document all functionality
+- Handle errors gracefully
+- Keep security in mind
+- Optimize for performance
+- Write maintainable code
+- Test thoroughly
+- Follow project conventions
