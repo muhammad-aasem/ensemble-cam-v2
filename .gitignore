@@ -177,17 +177,23 @@ $RECYCLE.BIN/
 *.msp
 *.lnk
 
-# Dataset files (large files)
+# Dataset files (large files) - exclude all image files
 dataset/NIH-Chest-X-ray/just-downloaded/
 dataset/NIH-Chest-X-ray/BBox/*.jpg
+dataset/NIH-Chest-X-ray/BBox/*.png
 dataset/NIH-Chest-X-ray/Classification/*/*.jpg
+dataset/NIH-Chest-X-ray/Classification/*/*.png
 dataset/NIH-Chest-X-ray/Classification_SMALL/*/*.jpg
+dataset/NIH-Chest-X-ray/Classification_SMALL/*/*.png
 
-# Model files (large files)
+# Model files (large files) - exclude all model weights and large outputs
 models/*/*.pth
+models/*/*.pt
 models/*/tensorboard_logs/
 models/*/confusion_matrix.png
 models/*/training_curves.png
+models/*.pth
+models/*.pt
 
 # Logs
 logs.txt
