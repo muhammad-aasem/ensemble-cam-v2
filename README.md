@@ -509,6 +509,7 @@ ensemble-cam-v2/
 │   ├── inception_resnet_v2/                          # InceptionResNetV2 model results
 │   └── xception/                                     # Xception model results
 ├── scripts/                                         # GitHub operation scripts
+│   ├── README.md                                    # Scripts documentation
 │   ├── github_upload.sh                             # Upload script (macOS/Linux)
 │   ├── github_upload.bat                            # Upload script (Windows CMD)
 │   ├── github_upload.ps1                            # Upload script (Windows PowerShell)
