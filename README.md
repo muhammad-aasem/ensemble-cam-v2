@@ -553,6 +553,133 @@ All models are:
 
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
+## Install Git
+
+Git is required for all GitHub operations. Here's how to install it on different operating systems:
+
+### Windows
+
+#### Option 1: Git for Windows (Recommended)
+1. Download Git from [https://git-scm.com/download/win](https://git-scm.com/download/win)
+2. Run the installer and follow the setup wizard
+3. Choose "Git from the command line and also from 3rd-party software" when prompted
+4. Use default settings for most options
+5. After installation, open Command Prompt or PowerShell and verify:
+   ```cmd
+   git --version
+   ```
+
+#### Option 2: Using Chocolatey
+```cmd
+# Install Chocolatey first (if not already installed)
+# Then install Git
+choco install git
+```
+
+#### Option 3: Using Winget
+```cmd
+winget install --id Git.Git -e --source winget
+```
+
+### macOS
+
+#### Option 1: Xcode Command Line Tools (Recommended)
+```bash
+# Install Xcode Command Line Tools (includes Git)
+xcode-select --install
+```
+
+#### Option 2: Using Homebrew
+```bash
+# Install Homebrew first (if not already installed)
+# Then install Git
+brew install git
+```
+
+#### Option 3: Using MacPorts
+```bash
+# Install MacPorts first (if not already installed)
+# Then install Git
+sudo port install git
+```
+
+### Linux
+
+#### Ubuntu/Debian
+```bash
+sudo apt update
+sudo apt install git
+```
+
+#### CentOS/RHEL/Fedora
+```bash
+# CentOS/RHEL
+sudo yum install git
+
+# Fedora
+sudo dnf install git
+```
+
+#### Arch Linux
+```bash
+sudo pacman -S git
+```
+
+#### openSUSE
+```bash
+sudo zypper install git
+```
+
+### Verify Installation
+
+After installation, verify Git is working:
+
+```bash
+git --version
+```
+
+You should see output similar to:
+```
+git version 2.39.0
+```
+
+### Configure Git (First Time Setup)
+
+After installing Git, configure it with your information:
+
+```bash
+# Set your name
+git config --global user.name "Your Name"
+
+# Set your email
+git config --global user.email "your.email@example.com"
+
+# Set default branch name
+git config --global init.defaultBranch main
+```
+
+### Troubleshooting
+
+#### Windows Issues
+- **"git is not recognized"**: Restart your terminal after installation
+- **Permission denied**: Run Command Prompt as Administrator
+- **SSL certificate issues**: Update Git or configure SSL settings
+
+#### macOS Issues
+- **"xcode-select: command not found"**: Install Xcode from App Store first
+- **Permission issues**: Use `sudo` for system-wide installation
+
+#### Linux Issues
+- **Package not found**: Update your package manager first
+- **Permission denied**: Use `sudo` for system installation
+- **Outdated version**: Use your distribution's package manager or compile from source
+
+### Additional Resources
+
+- [Git Official Documentation](https://git-scm.com/doc)
+- [Git Tutorial](https://git-scm.com/docs/gittutorial)
+- [Git Reference](https://git-scm.com/docs)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
