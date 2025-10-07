@@ -312,8 +312,58 @@ uv run python src/train/train_Xception.py dataset/NIH-Chest-X-ray/Classification
 uv run python src/train/train_Xception.py dataset/NIH-Chest-X-ray/Classification --max-epochs 100 --batch-size 16
 ```
 
+#### EfficientNet-B4 Model (NEW - State-of-the-art efficiency and accuracy)
+
+```bash
+# Train on small dataset (recommended for development)
+uv run python src/train/train_EfficientNetB4.py dataset/NIH-Chest-X-ray/Classification_SMALL --max-epochs 50 --batch-size 32
+
+# Train on full dataset (requires significant compute resources)
+uv run python src/train/train_EfficientNetB4.py dataset/NIH-Chest-X-ray/Classification --max-epochs 100 --batch-size 16
+```
+
+#### Vision Transformer Base/16 Model (NEW - Modern transformer architecture)
+
+```bash
+# Train on small dataset (recommended for development)
+uv run python src/train/train_ViT_Base.py dataset/NIH-Chest-X-ray/Classification_SMALL --max-epochs 50 --batch-size 32
+
+# Train on full dataset (requires significant compute resources)
+uv run python src/train/train_ViT_Base.py dataset/NIH-Chest-X-ray/Classification --max-epochs 100 --batch-size 16
+```
+
+#### ResNeXt-50 Model (NEW - Improved ResNet with cardinality)
+
+```bash
+# Train on small dataset (recommended for development)
+uv run python src/train/train_ResNeXt50.py dataset/NIH-Chest-X-ray/Classification_SMALL --max-epochs 50 --batch-size 32
+
+# Train on full dataset (requires significant compute resources)
+uv run python src/train/train_ResNeXt50.py dataset/NIH-Chest-X-ray/Classification --max-epochs 100 --batch-size 16
+```
+
+#### MobileNet V3 Large Model (NEW - Fast training and deployment)
+
+```bash
+# Train on small dataset (recommended for development)
+uv run python src/train/train_MobileNetV3.py dataset/NIH-Chest-X-ray/Classification_SMALL --max-epochs 50 --batch-size 32
+
+# Train on full dataset (requires significant compute resources)
+uv run python src/train/train_MobileNetV3.py dataset/NIH-Chest-X-ray/Classification --max-epochs 100 --batch-size 16
+```
+
+#### RegNetX-1.6GF Model (NEW - Modern, efficient architecture)
+
+```bash
+# Train on small dataset (recommended for development)
+uv run python src/train/train_RegNetX.py dataset/NIH-Chest-X-ray/Classification_SMALL --max-epochs 50 --batch-size 32
+
+# Train on full dataset (requires significant compute resources)
+uv run python src/train/train_RegNetX.py dataset/NIH-Chest-X-ray/Classification --max-epochs 100 --batch-size 16
+```
+
 All models will:
-- Use ImageNet pretrained weights (ResNet50, DenseNet121, DenseNet169, InceptionResNetV2 via timm, Xception via timm)
+- Use ImageNet pretrained weights (ResNet50, DenseNet121, DenseNet169, ResNeXt-50, MobileNet V3 Large via torchvision; InceptionResNetV2, Xception, EfficientNet-B4, ViT-Base/16, RegNetX-1.6GF via timm)
 - Fine-tune for chest X-ray classification (15 classes)
 - Save best weights to respective model directories
 - Generate timestamped training performance CSV files
@@ -379,6 +429,51 @@ All models will:
 - `models/xception/confusion_matrix.png`: Confusion matrix visualization
 - `models/xception/class_indices.json`: Class name to index mapping
 - `models/xception/training_history.json`: Complete training history
+
+**EfficientNet-B4 Model**:
+- `models/efficientnet_b4/efficientnet_b4_best.pth`: Best model weights
+- `models/efficientnet_b4/efficientnet_b4_latest.pth`: Latest checkpoint
+- `models/efficientnet_b4/{timestamp}_training_performance.csv`: Training metrics per epoch
+- `models/efficientnet_b4/test_results.json`: Test evaluation results
+- `models/efficientnet_b4/confusion_matrix.png`: Confusion matrix visualization
+- `models/efficientnet_b4/class_indices.json`: Class name to index mapping
+- `models/efficientnet_b4/training_history.json`: Complete training history
+
+**Vision Transformer Base/16 Model**:
+- `models/vit_base/vit_base_best.pth`: Best model weights
+- `models/vit_base/vit_base_latest.pth`: Latest checkpoint
+- `models/vit_base/{timestamp}_training_performance.csv`: Training metrics per epoch
+- `models/vit_base/test_results.json`: Test evaluation results
+- `models/vit_base/confusion_matrix.png`: Confusion matrix visualization
+- `models/vit_base/class_indices.json`: Class name to index mapping
+- `models/vit_base/training_history.json`: Complete training history
+
+**ResNeXt-50 Model**:
+- `models/resnext50/resnext50_best.pth`: Best model weights
+- `models/resnext50/resnext50_latest.pth`: Latest checkpoint
+- `models/resnext50/{timestamp}_training_performance.csv`: Training metrics per epoch
+- `models/resnext50/test_results.json`: Test evaluation results
+- `models/resnext50/confusion_matrix.png`: Confusion matrix visualization
+- `models/resnext50/class_indices.json`: Class name to index mapping
+- `models/resnext50/training_history.json`: Complete training history
+
+**MobileNet V3 Large Model**:
+- `models/mobilenet_v3/mobilenet_v3_best.pth`: Best model weights
+- `models/mobilenet_v3/mobilenet_v3_latest.pth`: Latest checkpoint
+- `models/mobilenet_v3/{timestamp}_training_performance.csv`: Training metrics per epoch
+- `models/mobilenet_v3/test_results.json`: Test evaluation results
+- `models/mobilenet_v3/confusion_matrix.png`: Confusion matrix visualization
+- `models/mobilenet_v3/class_indices.json`: Class name to index mapping
+- `models/mobilenet_v3/training_history.json`: Complete training history
+
+**RegNetX-1.6GF Model**:
+- `models/regnetx/regnetx_best.pth`: Best model weights
+- `models/regnetx/regnetx_latest.pth`: Latest checkpoint
+- `models/regnetx/{timestamp}_training_performance.csv`: Training metrics per epoch
+- `models/regnetx/test_results.json`: Test evaluation results
+- `models/regnetx/confusion_matrix.png`: Confusion matrix visualization
+- `models/regnetx/class_indices.json`: Class name to index mapping
+- `models/regnetx/training_history.json`: Complete training history
 
 ### Clean Up Downloaded Files (Optional)
 
@@ -502,7 +597,12 @@ ensemble-cam-v2/
 │       ├── train_DenseNet121.py                      # DenseNet121 model training script
 │       ├── train_DenseNet169.py                      # DenseNet169 model training script
 │       ├── train_InceptionResNetV2.py                # InceptionResNetV2 model training script
-│       └── train_Xception.py                         # Xception model training script
+│       ├── train_Xception.py                         # Xception model training script
+│       ├── train_EfficientNetB4.py                   # EfficientNet-B4 model training script (NEW)
+│       ├── train_ViT_Base.py                         # Vision Transformer Base/16 training script (NEW)
+│       ├── train_ResNeXt50.py                        # ResNeXt-50 model training script (NEW)
+│       ├── train_MobileNetV3.py                      # MobileNet V3 Large training script (NEW)
+│       └── train_RegNetX.py                          # RegNetX-1.6GF model training script (NEW)
 ├── dataset/                                          # Dataset directory (created after running scripts)
 │   └── NIH-Chest-X-ray/
 │       ├── BBox/                                     # Object detection subset
@@ -513,7 +613,12 @@ ensemble-cam-v2/
 │   ├── densenet121/                                  # DenseNet121 model results
 │   ├── densenet169/                                  # DenseNet169 model results
 │   ├── inception_resnet_v2/                          # InceptionResNetV2 model results
-│   └── xception/                                     # Xception model results
+│   ├── xception/                                     # Xception model results
+│   ├── efficientnet_b4/                              # EfficientNet-B4 model results (NEW)
+│   ├── vit_base/                                     # Vision Transformer Base/16 model results (NEW)
+│   ├── resnext50/                                    # ResNeXt-50 model results (NEW)
+│   ├── mobilenet_v3/                                 # MobileNet V3 Large model results (NEW)
+│   └── regnetx/                                      # RegNetX-1.6GF model results (NEW)
 ├── scripts/                                         # GitHub operation scripts
 │   ├── README.md                                    # Scripts documentation
 │   ├── github_upload.sh                             # Upload script (macOS/Linux)
