@@ -143,6 +143,7 @@ from torch.cuda.amp import GradScaler, autocast
 import torchvision
 from torchvision import transforms, models
 from torchvision.datasets import ImageFolder
+import timm
 
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import (
@@ -184,63 +185,36 @@ class ChestXRayDataset(Dataset):
 
 
 class InceptionResNetV2Classifier(nn.Module):
-    """InceptionResNetV2 model modified for chest X-ray classification."""
+    """InceptionResNetV2 model modified for chest X-ray classification using timm."""
     
     def __init__(self, num_classes: int = 15, dropout_rate: float = 0.5):
         super(InceptionResNetV2Classifier, self).__init__()
         
-        # Load pre-trained InceptionResNetV2
-        self.backbone = models.inception_resnet_v2(weights=models.InceptionResNetV2_Weights.IMAGENET1K_V1)
+        # Load pre-trained InceptionResNetV2 from timm
+        self.backbone = timm.create_model('inception_resnet_v2', pretrained=True, num_classes=0)  # num_classes=0 to get features
         
-        # Get number of features from the classifier
-        num_features = self.backbone.classif.in_features
+        # Get number of features from the model
+        num_features = self.backbone.num_features
         
-        # Replace the final classifier
-        self.backbone.classif = nn.Sequential(
+        # Add custom classifier
+        self.classifier = nn.Sequential(
             nn.Dropout(dropout_rate),
             nn.Linear(num_features, num_classes)
         )
         
         # Initialize the new layer
-        nn.init.xavier_uniform_(self.backbone.classif[1].weight)
-        nn.init.zeros_(self.backbone.classif[1].bias)
+        nn.init.xavier_uniform_(self.classifier[1].weight)
+        nn.init.zeros_(self.classifier[1].bias)
     
     def forward(self, x):
-        return self.backbone(x)
+        # Get features from backbone
+        features = self.backbone(x)
+        # Apply classifier
+        return self.classifier(features)
     
     def get_features(self, x):
         """Extract features for Grad-CAM++ compatibility."""
-        # Transform input
-        if x.size(1) != 3:
-            x = x.repeat(1, 3, 1, 1)  # Convert grayscale to RGB if needed
-        
-        # Extract features through InceptionResNetV2 backbone
-        x = self.backbone.Conv2d_1a_3x3(x)
-        x = self.backbone.Conv2d_2a_3x3(x)
-        x = self.backbone.Conv2d_2b_3x3(x)
-        x = self.backbone.maxpool1(x)
-        x = self.backbone.Conv2d_3b_1x1(x)
-        x = self.backbone.Conv2d_4a_3x3(x)
-        x = self.backbone.maxpool2(x)
-        
-        # Inception blocks
-        x = self.backbone.Mixed_5b(x)
-        x = self.backbone.Mixed_5c(x)
-        x = self.backbone.Mixed_5d(x)
-        x = self.backbone.Mixed_6a(x)
-        x = self.backbone.Mixed_6b(x)
-        x = self.backbone.Mixed_6c(x)
-        x = self.backbone.Mixed_6d(x)
-        x = self.backbone.Mixed_6e(x)
-        x = self.backbone.Mixed_7a(x)
-        x = self.backbone.Mixed_7b(x)
-        x = self.backbone.Mixed_7c(x)
-        
-        # Global average pooling
-        x = self.backbone.avgpool(x)
-        x = torch.flatten(x, 1)
-        
-        return x
+        return self.backbone(x)
 
 
 class ModelTrainer:
