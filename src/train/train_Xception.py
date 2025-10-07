@@ -143,6 +143,7 @@ from torch.cuda.amp import GradScaler, autocast
 import torchvision
 from torchvision import transforms, models
 from torchvision.datasets import ImageFolder
+import timm
 
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import (
@@ -184,68 +185,36 @@ class ChestXRayDataset(Dataset):
 
 
 class XceptionClassifier(nn.Module):
-    """Xception model modified for chest X-ray classification."""
+    """Xception model modified for chest X-ray classification using timm."""
     
     def __init__(self, num_classes: int = 15, dropout_rate: float = 0.5):
         super(XceptionClassifier, self).__init__()
         
-        # Load pre-trained Xception
-        self.backbone = models.xception(weights=models.Xception_Weights.IMAGENET1K_V1)
+        # Load pre-trained Xception from timm
+        self.backbone = timm.create_model('xception', pretrained=True, num_classes=0)  # num_classes=0 to get features
         
-        # Get number of features from the classifier
-        num_features = self.backbone.classifier[1].in_features
+        # Get number of features from the model
+        num_features = self.backbone.num_features
         
-        # Replace the final classifier
-        self.backbone.classifier = nn.Sequential(
+        # Add custom classifier
+        self.classifier = nn.Sequential(
             nn.Dropout(dropout_rate),
             nn.Linear(num_features, num_classes)
         )
         
         # Initialize the new layer
-        nn.init.xavier_uniform_(self.backbone.classifier[1].weight)
-        nn.init.zeros_(self.backbone.classifier[1].bias)
+        nn.init.xavier_uniform_(self.classifier[1].weight)
+        nn.init.zeros_(self.classifier[1].bias)
     
     def forward(self, x):
-        return self.backbone(x)
+        # Get features from backbone
+        features = self.backbone(x)
+        # Apply classifier
+        return self.classifier(features)
     
     def get_features(self, x):
         """Extract features for Grad-CAM++ compatibility."""
-        # Transform input
-        if x.size(1) != 3:
-            x = x.repeat(1, 3, 1, 1)  # Convert grayscale to RGB if needed
-        
-        # Extract features through Xception backbone
-        x = self.backbone.conv1(x)
-        x = self.backbone.bn1(x)
-        x = self.backbone.relu(x)
-        x = self.backbone.conv2(x)
-        x = self.backbone.bn2(x)
-        x = self.backbone.relu(x)
-        
-        # Entry flow
-        x = self.backbone.block1(x)
-        x = self.backbone.block2(x)
-        x = self.backbone.block3(x)
-        
-        # Middle flow
-        for i in range(8):
-            x = self.backbone.block4[i](x)
-        
-        # Exit flow
-        x = self.backbone.block5(x)
-        x = self.backbone.block6(x)
-        x = self.backbone.block7(x)
-        x = self.backbone.block8(x)
-        x = self.backbone.block9(x)
-        x = self.backbone.block10(x)
-        x = self.backbone.block11(x)
-        x = self.backbone.block12(x)
-        
-        # Global average pooling
-        x = self.backbone.avgpool(x)
-        x = torch.flatten(x, 1)
-        
-        return x
+        return self.backbone(x)
 
 
 class ModelTrainer:

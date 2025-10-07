@@ -80,8 +80,14 @@ uv run python src/NIH-Chest-X-ray/dataset_7_preprocess.py
 # Step 7: Create small dataset for development (optional)
 uv run python src/NIH-Chest-X-ray/dataset_8_small-dataset.py
 
-# Step 8: Train Xception model (example)
-uv run python src/train/train_Xception.py dataset/NIH-Chest-X-ray/Classification_SMALL --max-epochs 50 --batch-size 32
+
+# Step 8: Train  model
+uv run python src/train/train_resnet50.py dataset/NIH-Chest-X-ray/Classification_SMALL --max-epochs 3 --batch-size 32
+
+
+uv run python src/train/train_DenseNet121.py dataset/NIH-Chest-X-ray/Classification_SMALL --max-epochs 3 --batch-size 32
+
+
 
 # Step 9: Start Jupyter Lab
 uv run jupyter lab
