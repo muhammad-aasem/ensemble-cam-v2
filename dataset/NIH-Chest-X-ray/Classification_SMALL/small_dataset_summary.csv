@@ -1,19 +1,19 @@
 Class Name,Requested Images,Available Images,Copied Images,Status
-Atelectasis,150,6131,150,success
-Cardiomegaly,130,1099,130,success
-Consolidation,140,1536,140,success
-Edema,125,707,125,success
-Effusion,160,9139,160,success
-Emphysema,120,924,120,success
-Fibrosis,115,733,115,success
-Hernia,25,110,25,success
-Infiltration,180,19582,180,success
-Mass,135,2832,135,success
-No_Finding,200,60361,200,success
-Nodule,145,3793,145,success
-Pleural_Thickening,120,1288,120,success
-Pneumonia,130,302,130,success
-Pneumothorax,125,2703,125,success
+Atelectasis,150,3907,150,success
+Cardiomegaly,130,722,130,success
+Consolidation,140,920,140,success
+Edema,125,346,125,success
+Effusion,160,5514,160,success
+Emphysema,120,574,120,success
+Fibrosis,115,494,115,success
+Hernia,25,85,25,success
+Infiltration,180,12802,180,success
+Mass,135,1584,135,success
+No_Finding,200,39236,200,success
+Nodule,145,2514,145,success
+Pleural_Thickening,120,877,120,success
+Pneumonia,130,184,130,success
+Pneumothorax,125,1816,125,success
 TOTAL,2000,,2000,
 
 Dataset Split Information
