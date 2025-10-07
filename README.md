@@ -313,7 +313,7 @@ uv run python src/train/train_Xception.py dataset/NIH-Chest-X-ray/Classification
 ```
 
 All models will:
-- Use ImageNet pretrained weights (ResNet50, DenseNet121, DenseNet169, InceptionResNetV2, or Xception)
+- Use ImageNet pretrained weights (ResNet50, DenseNet121, DenseNet169, InceptionResNetV2 via timm, Xception via timm)
 - Fine-tune for chest X-ray classification (15 classes)
 - Save best weights to respective model directories
 - Generate timestamped training performance CSV files
