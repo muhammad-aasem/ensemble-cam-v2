@@ -1,0 +1,515 @@
+ENSEMBLE CAM - PLATFORM INFORMATION REPORT
+============================================================
+Generated on: 2025-10-09 07:01:59
+Project: Ensemble CAM - NIH Chest X-ray Classification
+============================================================
+
+SYSTEM INFORMATION
+--------------------
+Platform: macOS-15.6.1-arm64-arm-64bit-Mach-O
+System: Darwin
+Release: 24.6.0
+Version: Darwin Kernel Version 24.6.0: Mon Jul 14 11:30:55 PDT 2025; root:xnu-11417.140.69~1/RELEASE_ARM64_T6031
+Machine: arm64
+Processor: arm
+Architecture: ('64bit', 'Mach-O')
+Python Version: 3.13.2
+Python Implementation: CPython
+
+CPU INFORMATION
+--------------------
+Physical Cores: 14
+Logical Cores: 14
+Max Frequency: 4056.00 MHz
+Current Frequency: 4056.00 MHz
+Cpu Percent: 16.6%
+
+MEMORY INFORMATION
+--------------------
+Total Gb: 36.00 GB
+Available Gb: 14.88 GB
+Used Gb: 14.28 GB
+Used Percent: 58.7%
+
+GPU INFORMATION
+--------------------
+CUDA Available: False
+CUDA Version: None
+CUDA Device Count: 0
+MPS Available: True
+
+PYTORCH INFORMATION
+--------------------
+Version: 2.8.0
+Cuda Available: False
+Cuda Version: None
+Cudnn Version: None
+Mps Available: True
+Device Count: 0
+Current Device: mps
+
+STORAGE INFORMATION
+--------------------
+Mount: /
+  Device: /dev/disk3s1s1
+  Fstype: apfs
+  Total Gb: 926.35 GB
+  Used Gb: 10.49 GB
+  Free Gb: 116.61 GB
+  Used Percent: 1.1%
+
+Mount: /System/Volumes/VM
+  Device: /dev/disk3s6
+  Fstype: apfs
+  Total Gb: 926.35 GB
+  Used Gb: 0.00 GB
+  Free Gb: 116.61 GB
+  Used Percent: 0.0%
+
+Mount: /System/Volumes/Preboot
+  Device: /dev/disk3s2
+  Fstype: apfs
+  Total Gb: 926.35 GB
+  Used Gb: 6.61 GB
+  Free Gb: 116.61 GB
+  Used Percent: 0.7%
+
+Mount: /System/Volumes/Update
+  Device: /dev/disk3s4
+  Fstype: apfs
+  Total Gb: 926.35 GB
+  Used Gb: 0.00 GB
+  Free Gb: 116.61 GB
+  Used Percent: 0.0%
+
+Mount: /System/Volumes/xarts
+  Device: /dev/disk1s2
+  Fstype: apfs
+  Total Gb: 0.49 GB
+  Used Gb: 0.01 GB
+  Free Gb: 0.47 GB
+  Used Percent: 1.2%
+
+Mount: /System/Volumes/iSCPreboot
+  Device: /dev/disk1s1
+  Fstype: apfs
+  Total Gb: 0.49 GB
+  Used Gb: 0.01 GB
+  Free Gb: 0.47 GB
+  Used Percent: 1.1%
+
+Mount: /System/Volumes/Hardware
+  Device: /dev/disk1s3
+  Fstype: apfs
+  Total Gb: 0.49 GB
+  Used Gb: 0.00 GB
+  Free Gb: 0.47 GB
+  Used Percent: 0.5%
+
+Mount: /System/Volumes/Data
+  Device: /dev/disk3s5
+  Fstype: apfs
+  Total Gb: 926.35 GB
+  Used Gb: 779.97 GB
+  Free Gb: 116.61 GB
+  Used Percent: 84.2%
+
+Mount: /nix
+  Device: /dev/disk3s7
+  Fstype: apfs
+  Total Gb: 926.35 GB
+  Used Gb: 11.50 GB
+  Free Gb: 116.61 GB
+  Used Percent: 1.2%
+
+TRAINING RECOMMENDATIONS
+--------------------
+Gpu Recommendation: No GPU detected - CPU training only
+Batch Size Recommendation: N/A - will use CPU
+Model Recommendation: CPU training only - very slow
+Training Time Estimate: Very Slow (12-24+ hours for 50 epochs on CPU)
+Memory Warnings:
+  - No GPU detected - training will be very slow on CPU
+Optimization Suggestions:
+
+RAW DATA (JSON)
+--------------------
+{
+  "timestamp": "2025-10-09 07:01:59",
+  "system": {
+    "platform": "macOS-15.6.1-arm64-arm-64bit-Mach-O",
+    "system": "Darwin",
+    "release": "24.6.0",
+    "version": "Darwin Kernel Version 24.6.0: Mon Jul 14 11:30:55 PDT 2025; root:xnu-11417.140.69~1/RELEASE_ARM64_T6031",
+    "machine": "arm64",
+    "processor": "arm",
+    "architecture": [
+      "64bit",
+      "Mach-O"
+    ],
+    "python_version": "3.13.2",
+    "python_implementation": "CPython"
+  },
+  "cpu": {
+    "physical_cores": 14,
+    "logical_cores": 14,
+    "max_frequency": "4056.00 MHz",
+    "current_frequency": "4056.00 MHz",
+    "cpu_percent": "16.6%"
+  },
+  "memory": {
+    "total_gb": "36.00 GB",
+    "available_gb": "14.88 GB",
+    "used_gb": "14.28 GB",
+    "used_percent": "58.7%",
+    "total_bytes": 38654705664,
+    "available_bytes": 15972761600
+  },
+  "gpu": {
+    "nvidia_gpus": [],
+    "amd_gpus": [],
+    "intel_gpus": [],
+    "cuda_available": false,
+    "cuda_version": null,
+    "cuda_device_count": 0,
+    "mps_available": true
+  },
+  "python": {
+    "version": "3.13.2 | packaged by Anaconda, Inc. | (main, Feb  6 2025, 12:55:35) [Clang 14.0.6 ]",
+    "executable": "/Users/macbook/dev/ensemble-cam/.venv/bin/python3",
+    "platform": "darwin",
+    "implementation": "CPython",
+    "compiler": "Clang 14.0.6 "
+  },
+  "pytorch": {
+    "version": "2.8.0",
+    "cuda_available": false,
+    "cuda_version": null,
+    "cudnn_version": null,
+    "mps_available": true,
+    "device_count": 0,
+    "current_device": "mps"
+  },
+  "storage": {
+    "/": {
+      "device": "/dev/disk3s1s1",
+      "fstype": "apfs",
+      "total_gb": "926.35 GB",
+      "used_gb": "10.49 GB",
+      "free_gb": "116.61 GB",
+      "used_percent": "1.1%"
+    },
+    "/System/Volumes/VM": {
+      "device": "/dev/disk3s6",
+      "fstype": "apfs",
+      "total_gb": "926.35 GB",
+      "used_gb": "0.00 GB",
+      "free_gb": "116.61 GB",
+      "used_percent": "0.0%"
+    },
+    "/System/Volumes/Preboot": {
+      "device": "/dev/disk3s2",
+      "fstype": "apfs",
+      "total_gb": "926.35 GB",
+      "used_gb": "6.61 GB",
+      "free_gb": "116.61 GB",
+      "used_percent": "0.7%"
+    },
+    "/System/Volumes/Update": {
+      "device": "/dev/disk3s4",
+      "fstype": "apfs",
+      "total_gb": "926.35 GB",
+      "used_gb": "0.00 GB",
+      "free_gb": "116.61 GB",
+      "used_percent": "0.0%"
+    },
+    "/System/Volumes/xarts": {
+      "device": "/dev/disk1s2",
+      "fstype": "apfs",
+      "total_gb": "0.49 GB",
+      "used_gb": "0.01 GB",
+      "free_gb": "0.47 GB",
+      "used_percent": "1.2%"
+    },
+    "/System/Volumes/iSCPreboot": {
+      "device": "/dev/disk1s1",
+      "fstype": "apfs",
+      "total_gb": "0.49 GB",
+      "used_gb": "0.01 GB",
+      "free_gb": "0.47 GB",
+      "used_percent": "1.1%"
+    },
+    "/System/Volumes/Hardware": {
+      "device": "/dev/disk1s3",
+      "fstype": "apfs",
+      "total_gb": "0.49 GB",
+      "used_gb": "0.00 GB",
+      "free_gb": "0.47 GB",
+      "used_percent": "0.5%"
+    },
+    "/System/Volumes/Data": {
+      "device": "/dev/disk3s5",
+      "fstype": "apfs",
+      "total_gb": "926.35 GB",
+      "used_gb": "779.97 GB",
+      "free_gb": "116.61 GB",
+      "used_percent": "84.2%"
+    },
+    "/nix": {
+      "device": "/dev/disk3s7",
+      "fstype": "apfs",
+      "total_gb": "926.35 GB",
+      "used_gb": "11.50 GB",
+      "free_gb": "116.61 GB",
+      "used_percent": "1.2%"
+    }
+  },
+  "network": {
+    "lo0": [
+      {
+        "family": "2",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "broadcast": null
+      },
+      {
+        "family": "30",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "broadcast": null
+      },
+      {
+        "family": "30",
+        "address": "fe80::1%lo0",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "broadcast": null
+      }
+    ],
+    "en0": [
+      {
+        "family": "2",
+        "address": "192.168.100.28",
+        "netmask": "255.255.255.0",
+        "broadcast": "192.168.100.255"
+      },
+      {
+        "family": "18",
+        "address": "2e:ec:32:4e:6f:02",
+        "netmask": null,
+        "broadcast": null
+      },
+      {
+        "family": "30",
+        "address": "fe80::1043:1eee:2f4c:4772%en0",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "broadcast": null
+      },
+      {
+        "family": "30",
+        "address": "2001:16a3:b2e:7d00:cd8:51f0:1a5b:9644",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "broadcast": null
+      },
+      {
+        "family": "30",
+        "address": "2001:16a3:b2e:7d00:b0aa:428d:5b33:1090",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "broadcast": null
+      },
+      {
+        "family": "30",
+        "address": "2001:16a3:b2e:7d00:6c0b:8ae3:47a8:1d83",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "broadcast": null
+      },
+      {
+        "family": "30",
+        "address": "2001:16a3:b2e:7d00:3877:2b0f:4649:c37e",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "broadcast": null
+      }
+    ],
+    "anpi2": [
+      {
+        "family": "18",
+        "address": "b2:61:4b:15:53:0f",
+        "netmask": null,
+        "broadcast": null
+      }
+    ],
+    "anpi0": [
+      {
+        "family": "18",
+        "address": "b2:61:4b:15:53:0d",
+        "netmask": null,
+        "broadcast": null
+      }
+    ],
+    "anpi1": [
+      {
+        "family": "18",
+        "address": "b2:61:4b:15:53:0e",
+        "netmask": null,
+        "broadcast": null
+      }
+    ],
+    "en4": [
+      {
+        "family": "18",
+        "address": "b2:61:4b:15:53:ed",
+        "netmask": null,
+        "broadcast": null
+      }
+    ],
+    "en5": [
+      {
+        "family": "18",
+        "address": "b2:61:4b:15:53:ee",
+        "netmask": null,
+        "broadcast": null
+      }
+    ],
+    "en6": [
+      {
+        "family": "18",
+        "address": "b2:61:4b:15:53:ef",
+        "netmask": null,
+        "broadcast": null
+      }
+    ],
+    "en1": [
+      {
+        "family": "18",
+        "address": "36:b2:3c:ca:59:00",
+        "netmask": null,
+        "broadcast": null
+      }
+    ],
+    "en2": [
+      {
+        "family": "18",
+        "address": "36:b2:3c:ca:59:04",
+        "netmask": null,
+        "broadcast": null
+      }
+    ],
+    "en3": [
+      {
+        "family": "18",
+        "address": "36:b2:3c:ca:59:08",
+        "netmask": null,
+        "broadcast": null
+      }
+    ],
+    "bridge0": [
+      {
+        "family": "18",
+        "address": "36:b2:3c:ca:59:00",
+        "netmask": null,
+        "broadcast": null
+      }
+    ],
+    "ap1": [
+      {
+        "family": "18",
+        "address": "e6:7d:5e:fe:50:12",
+        "netmask": null,
+        "broadcast": null
+      }
+    ],
+    "awdl0": [
+      {
+        "family": "18",
+        "address": "76:59:ba:c1:5e:1d",
+        "netmask": null,
+        "broadcast": null
+      },
+      {
+        "family": "30",
+        "address": "fe80::7459:baff:fec1:5e1d%awdl0",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "broadcast": null
+      }
+    ],
+    "llw0": [
+      {
+        "family": "18",
+        "address": "76:59:ba:c1:5e:1d",
+        "netmask": null,
+        "broadcast": null
+      },
+      {
+        "family": "30",
+        "address": "fe80::7459:baff:fec1:5e1d%llw0",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "broadcast": null
+      }
+    ],
+    "utun0": [
+      {
+        "family": "30",
+        "address": "fe80::3c9e:1633:9f97:df25%utun0",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "broadcast": null
+      }
+    ],
+    "utun1": [
+      {
+        "family": "30",
+        "address": "fe80::c403:2538:7d71:e405%utun1",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "broadcast": null
+      }
+    ],
+    "utun2": [
+      {
+        "family": "30",
+        "address": "fe80::1c6b:8153:ac1b:f9f9%utun2",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "broadcast": null
+      }
+    ],
+    "utun3": [
+      {
+        "family": "30",
+        "address": "fe80::ce81:b1c:bd2c:69e%utun3",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "broadcast": null
+      }
+    ],
+    "utun4": [
+      {
+        "family": "30",
+        "address": "fe80::1d31:e99a:fef0:9b63%utun4",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "broadcast": null
+      }
+    ],
+    "utun5": [
+      {
+        "family": "30",
+        "address": "fe80::931a:e09d:b70a:4e94%utun5",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "broadcast": null
+      }
+    ],
+    "utun6": [
+      {
+        "family": "30",
+        "address": "fe80::dd0f:8f79:fe91:1a43%utun6",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "broadcast": null
+      }
+    ]
+  },
+  "recommendations": {
+    "gpu_recommendation": "No GPU detected - CPU training only",
+    "batch_size_recommendation": "N/A - will use CPU",
+    "model_recommendation": "CPU training only - very slow",
+    "training_time_estimate": "Very Slow (12-24+ hours for 50 epochs on CPU)",
+    "memory_warnings": [
+      "No GPU detected - training will be very slow on CPU"
+    ],
+    "optimization_suggestions": []
+  }
+}
