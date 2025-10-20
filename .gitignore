@@ -1,0 +1,37 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+
+# Large model weights and training outputs (EXCLUDED from git)
+weights/models_data/*.pt
+weights/models_data/*.pth
+weights/train_weight_mobilenet/*.pt
+weights/train_weight_mobilenet/performance.csv
+
+# Keep documentation
+!weights/README.md
+!weights/train_weight_mobilenet/README.md
+
+# CAM outputs (exclude generated visualizations, keep README)
+OUTPUT/*/
+!OUTPUT/README.md
+!OUTPUT/.gitkeep
+
+# Data directory (NIH dataset, input images - LARGE)
+data/
+data/*
+!data/.gitkeep
+
+# System files
+.DS_Store
+*.swp
+*.swo
+*~

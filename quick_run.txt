@@ -1,0 +1,56 @@
+
+-- Web UI --------
+uv run streamlit run app.py
+
+-- CLI -----------------
+
+## MobileNetV3 Training
+# Train (requires NIH Chest X-ray14 dataset)
+uv run python src/train_mobilenet.py --epochs 2 \
+    --imgpath data/NIH-Chest-X-ray/images/images \
+    --csvpath data/NIH-Chest-X-ray/Data_Entry_2017_v2020.csv \
+    --batch-size 32 --num-workers 2 
+----
+# exporting variables
+export target_class="Cardiomegaly"
+export input_image=data/INPUT/Cardiomegaly/00005066_030.png
+
+
+# MobileNetV3 Classify
+uv run python src/classify_mobilenetv3.py --input $input_image
+
+## DenseNet121 
+uv run python src/classify_densenet121.py --input $input_image 
+uv run python src/generate_cams.py  --input $input_image --target-class $target_class --model densenet121
+uv run python src/generate_bbox.py --input-mask OUTPUT/00005066_030/densenet121_Cardiomegaly_P3.png \
+    --ground-truth "Cardiomegaly,277,459,540,301"
+
+## resnet50 
+uv run python src/classify_resnet50.py --input $input_image
+uv run python src/generate_cams.py  --input $input_image --target-class $target_class --model resnet50
+uv run python src/generate_bbox.py --input-mask OUTPUT/00005066_030/resnet50_Cardiomegaly_P3.png \
+    --ground-truth "Cardiomegaly,277,459,540,301"
+
+## jfhealthcare 
+uv run python src/classify_jfhealthcare.py --input $input_image
+uv run python src/generate_cams.py  --input $input_image --target-class $target_class --model jfhealthcare
+uv run python src/generate_bbox.py --input-mask OUTPUT/00005066_030/jfhealthcare_Cardiomegaly_P3.png \
+    --ground-truth "Cardiomegaly,277,459,540,301"
+
+## MobileNetV3 (custom trained)
+uv run python src/classify_mobilenetv3.py --input $input_image
+uv run python src/generate_cams.py  --input $input_image --target-class $target_class --model mobilenetv3
+uv run python src/generate_bbox.py --input-mask OUTPUT/00005066_030/mobilenetv3_Cardiomegaly_P3.png \
+    --ground-truth "Cardiomegaly,277,459,540,301"
+
+# CONSOLIDATE (multi-model ensemble)
+python src/generate_bbox_consolidated.py \
+    --input-sources \
+        OUTPUT/00005066_030/densenet121_Cardiomegaly_P3.png \
+        OUTPUT/00005066_030/jfhealthcare_Cardiomegaly_P3.png \
+        OUTPUT/00005066_030/resnet50_Cardiomegaly_P3.png \
+        OUTPUT/00005066_030/mobilenetv3_Cardiomegaly_P3.png \
+    --method merge-masking \
+    --target-class "Cardiomegaly" \
+    --ground-truth "Cardiomegaly,277,459,540,301"
+

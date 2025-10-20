@@ -1,0 +1,40 @@
+# Classifier Configuration for Ensemble-CAM
+# Defines available X-ray classifiers and their weights
+
+[classifiers.densenet121]
+name = "DenseNet121"
+description = "Fast, accurate multi-dataset model (224x224)"
+model_type = "densenet"
+input_size = 224
+default_weight = "densenet121-res224-all"
+weights = [
+    "densenet121-res224-all",
+    "densenet121-res224-rsna",
+    "densenet121-res224-nih",
+    "densenet121-res224-pc",
+    "densenet121-res224-chex",
+    "densenet121-res224-mimic_nb",
+    "densenet121-res224-mimic_ch"
+]
+num_pathologies = 18
+
+[classifiers.resnet50]
+name = "ResNet50"
+description = "High-resolution model (512x512)"
+model_type = "resnet"
+input_size = 512
+default_weight = "resnet50-res512-all"
+weights = [
+    "resnet50-res512-all"
+]
+num_pathologies = 18
+
+[classifiers.jfhealthcare]
+name = "JF Healthcare DenseNet"
+description = "Specialized baseline model (5 pathologies, 512x512)"
+model_type = "jfhealthcare"
+input_size = 512
+# No default_weight - this model has no weight variants
+weights = []
+num_pathologies = 5
+
